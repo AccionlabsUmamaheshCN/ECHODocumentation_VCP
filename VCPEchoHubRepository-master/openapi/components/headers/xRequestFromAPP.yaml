@@ -1,0 +1,7 @@
+x-RequestFromAPP:
+  schema:
+    type: string 
+  name: x-RequestFromAPP
+  in: header
+  required: true
+
