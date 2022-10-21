@@ -4,21 +4,19 @@ info:
   title: ECHO Hub Virtual Card Processing API
   
   description: >-
+    API Endpoints for the ECHO VCP clients.
      
-     Virtual cards are one way that Echo facilitates payments from the Payor to the Provider. 
-     The Payor or Provider may have questions on whether a card has been used, what the card balance is, and if the card is active. 
-     For these types of inquiries, there is an API endpoint for card status and transactions. 
 
            SandBox url: https://sandbox.echohealthincapi.com/
            Production Url : https://api.echohealthincapi.com/
     
-     # Authentication
+     
+       # Authentication
 
        Authentication is a process by which a system verifies the identity of a
        user accessing this API.       
     
-     # Authorization
-       Authorization is used to validate the privileges of access to the API user.  
+     
     
   contact:
     name: ECHO Health Inc.
@@ -26,29 +24,20 @@ info:
 servers:
   - url: https://sandbox.echohealthincapi.com
   - url: https://api.echohealthincapi.com    
-  
-  
-    # description: >    
-
-    #   ## Overview
-    #   
-
-    #   There are several situations where a Provider or Payor may want to cancel (Block) the card. 
-    #   The Payor may want to issue another form of payment directly to the Provider through their own process. The Provider may prefer a check or another form of payment (Block and Reissue), or the Provider may want to cancel their current card and opt out of all future cards (Block and Opt Out). These types of card-blocking scenarios can be done through the following API endpoints 
-    #   -- Block, BlockAndReissue, and BlockAndOptOut
-
-    #    
+        
   
 security:
   - x-ApiKey: []
   - x-ClientKey: []
 paths:
+  #Authorization
   /api/v1/gettoken:
     $ref: paths/api@v1@gettoken.yaml
+  #VCP  
   /api/VCP/V1/CardActivity:
-    $ref: paths/api@VCP@V1@CardActivity.yaml
+    $ref: paths/VCP/api@VCP@V1@CardActivity.yaml
   /api/VCP/V1/CardCancel:
-    $ref: paths/api@VCP@V1@CardCancel.yaml
+    $ref: paths/VCP/api@VCP@V1@CardCancel.yaml
       
 components:
   securitySchemes:
