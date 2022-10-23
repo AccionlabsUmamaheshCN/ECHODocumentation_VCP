@@ -11,10 +11,8 @@ info:
            Production Url : https://api.echohealthincapi.com/
     
      
-       # Authentication
 
-       Authentication is a process by which a system verifies the identity of a
-       user accessing this API.       
+             
     
      
     
@@ -36,7 +34,7 @@ paths:
   #VCP  
   /api/VCP/V1/CardActivity:
     $ref: paths/VCP/api@VCP@V1@CardActivity.yaml
-  /api/VCP/V1/CardCancel:
+  /api/VCP/V1/Cancel:
     $ref: paths/VCP/api@VCP@V1@CardCancel.yaml
       
 components:
@@ -57,4 +55,18 @@ components:
       in: header
       description: Requests should pass an api_key header.  
     
+tags: 
+   #Authorization
+  -   name: Authorization
+      description: |
+       This endpoint helps to generate the Authorization Token for accessing the endpoints.
+  #VCP
+  - name: Virtual Card Program (VCP)
+    description: |
+      Virtual cards are one way that Echo facilitates payments from the Payor to the Provider. The Payor or Provider may have questions on whether a card has been used, what the card balance is, and if the card is active. For these types of inquiries, there is an API endpoint for card status and transactions. 
 
+      There are several situations where a Provider or Payor may want to cancel (Block) the card. The Payor may want to issue another form of payment directly to the Provider through their own process. The Provider may prefer a check or another form of payment (Block and Reissue), or the Provider may want to cancel their current card and opt out of all future cards (Block and OptOut). These types of card-blocking scenarios can be done through the following API endpoints -- Block, BlockAndReissue, and BlockAndOptOut.
+
+      virtual card program has two end points:
+        * Virtual Card  Activity 
+        * Virtual Card  Cancel 
